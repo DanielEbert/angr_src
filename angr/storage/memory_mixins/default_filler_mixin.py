@@ -80,6 +80,8 @@ class DefaultFillerMixin(MemoryMixin):
 
         r = self.state.solver.Unconstrained(name, bits, key=key, inspect=inspect, events=events)
 
+        r = self.state.solver.BVV(self.state.solver.eval(r), bits)
+
         return r
 
 
